@@ -1,0 +1,140 @@
+extends layouts/layout
+
+block title 
+	title This is Login Page
+
+block content
+	div.container.login
+		div.overlay-loading.hide
+		div.row.login-form
+			div.col.s4.offset-s4.card-panel.z-depth-4
+				div.row.center.title
+					p Welcome To Jade Login Demo
+				div.row.no-margin-bottom
+					div.input-field.col.s12
+						i.material-icons.prefix perm_identity
+						input#username(type='text')
+						label(for='username') Username
+				div.row.no-margin-bottom
+					div.input-field.col.s12
+						i.material-icons.prefix lock_outline
+						input#password(type='password')
+						label(for='password') Password
+				div.row
+					div.input-field.col.s12
+						input#remember(type='checkbox')
+						label(for='remember') Remember Me
+				div.row
+					div.input-field.col.s12
+						a#login.waves-effect.waves-light.btn.custom-btn(href='#') Login
+				div.row.center
+					div.input-field.col.s12
+						a.register.modal-trigger(href='#modal_register') Register Now !!
+					//- div.input-field.col.s6
+					//- 	a.forgot-password(href='#') Forgot Password ?
+		div.preloader-wrapper.big.active.hide.custom-loader
+				div.spinner-layer.spinner-blue-only
+					div.circle-clipper.left
+						div.circle
+					div.gap-patch
+						dic.circle
+					div.circle-clipper.right
+						div.circle
+
+	div#modal_register.modal
+		div.modal-content
+			h5.title Please input your information
+		div.row.modal-form
+			div.col.s12
+				div.row
+					div.input-field.col.s12
+						input#tb_username(type='text')
+						label(for='tb_username') Username
+				div.row
+					div.input-field.col.s6
+						input#tb_password(type='password')
+						label(for='tb_password') Password
+					div.input-field.col.s6
+						input#tb_confirm_password(type='password')
+						label(for='tb_confirm_password') Confirm Password
+				div.row
+					div.input-field.col.s6
+						input#tb_firstname(type='text')
+						label(for='tb_firstname') First Name
+					div.input-field.col.s6
+						input#tb_lastname(type='text')
+						label(for='tb_lastname') Last Name
+				div.row
+					div.input-field.col.s12
+						input#tb_email(type='email')
+						label(for='tb_email') Email
+		div.modal-footer
+			a.modal-close.waves-effect.waves-red.btn-flat(href='#') Cancel
+			a#submit.modal-action.waves-effect.waves-green.btn-flat(href='#') Submit
+block custom_script
+	script.
+		$(function(){
+			$('.modal-trigger').leanModal();
+			
+			$('#submit').on('click', function(event) {
+				$('#modal_register').closeModal();
+
+				var username = $('#tb_username').val();
+				var password = $('#tb_password').val();
+				var confirmPassword = $('#tb_confirm_password').val();
+				var firstName = $('#tb_firstname').val();
+				var lastName = $('#tb_lastname').val();
+				var email = $('#tb_email').val();
+				//- $('.preloader-wrapper').removeClass('hide');
+				//- $('.overlay-loading').removeClass('hide');
+				$.ajax({
+					method: 'POST',
+					url: '/addUsers',
+					contentType: 'application/json; charset=utf-8',
+					data: JSON.stringify({
+						username: username,
+						password: password,
+						firstName: firstName,
+						lastName: lastName,
+						email: email
+					})
+				})
+				.done(function(data) {
+					console.log('done', data);
+				})
+				.fail(function(data) {
+					console.log('fail', data);
+				})
+				.always(function(data) {
+					console.log('alway', data);
+				});
+			});
+
+			$('#login').on('click', function(event) {
+				var username = $('#username').val();
+				var password = $('#password').val();
+
+				$.ajax({
+					method: 'POST',
+					url: '/auth',
+					contentType: 'application/json; charset=utf-8',
+					data: JSON.stringify({
+						username: username,
+						password: password
+					})
+				})
+				.done(function(data) {
+					console.log('done', data);
+				})
+				.fail(function(data) {
+					console.log('fail', data);
+				})
+				.always(function(data) {
+					console.log('alway', data);
+					if(data.length > 0) {
+						window.location = 'users';
+					}
+				});
+			});
+		});
+		
