@@ -8,5 +8,4 @@ var userSchema = mongoose.Schema({
 	email: String
 });
 
-mongoose.connect('mongodb://localhost:27017/demo');
 module.exports = mongoose.model('user', userSchema);
