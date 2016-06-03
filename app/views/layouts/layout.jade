@@ -1,0 +1,19 @@
+doctype html
+html(lang='th')
+	head
+		block meta
+			meta(charset='utf-8')
+
+		block title
+			title='Jade Layout Template'
+
+		block styles
+			link(rel='stylesheet', href='/materialize-css/dist/css/materialize.min.css')
+			link(rel='stylesheet', href='/css/style.css')
+	body
+		block content
+		block scripts
+			script(src='/jquery/dist/jquery.js')
+			script(src='/materialize-css/dist/js/materialize.min.js')
+			script(src='/js/jquery-validation-1.15.0/dist/jquery.validate.min.js')
+		block custom_script

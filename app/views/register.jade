@@ -1,0 +1,34 @@
+extends layouts/layout
+
+block title 
+	title= title
+
+block content
+	div.container.register
+		div.row.register-form
+			div.col.s6.offset-s3.card-panel.z-depth-4
+				div.row.center.title
+					p Please input your information
+				form(name='register', method='POST', action='/register')
+					div.col.s12
+						div.row
+							div.input-field.col.s6
+								input(type='text', name='username')
+								label(for='username') Username
+							div.input-field.col.s6
+								input(type='password', name='password')
+								label(for='password') Password
+						div.row
+							div.input-field.col.s6
+								input(type='text', name='firstName')
+								label(for='firstname') First Name
+							div.input-field.col.s6
+								input(type='text', name='lastName')
+								label(for='lastname') Last Name
+						div.row
+							div.input-field.col.s12
+								input(type='email', name='email')
+								label(for='email') Email
+						div.row
+							div.input-field.col.s12.center
+								button.waves-effect.waves-light.btn.custom-btn(type='submit') Register

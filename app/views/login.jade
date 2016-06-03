@@ -1,0 +1,43 @@
+extends layouts/layout
+
+block title 
+	title= title
+
+block content
+	div.container.login
+		div.overlay-loading.hide
+		div.row.login-form
+			div.col.s4.offset-s4.card-panel.z-depth-4
+				div.row.center.title
+					p Welcome To Login Demo
+				div.row.no-margin-bottom
+					div.input-field.col.s12
+						i.material-icons.prefix perm_identity
+						input#username(type='text')
+						label(for='username') Username
+				div.row.no-margin-bottom
+					div.input-field.col.s12
+						i.material-icons.prefix lock_outline
+						input#password(type='password')
+						label(for='password') Password
+				div.row
+					div.input-field.col.s12
+						input#remember(type='checkbox')
+						label(for='remember') Remember Me
+				div.row
+					div.input-field.col.s12
+						a#login.waves-effect.waves-light.btn.custom-btn(href='#') Login
+				div.row.center
+					div.input-field.col.s12
+						a.register.modal-trigger(href='/register') Register Now !!
+					//- div.input-field.col.s6
+					//- 	a.forgot-password(href='#') Forgot Password ?
+		div.preloader-wrapper.big.active.hide.custom-loader
+				div.spinner-layer.spinner-blue-only
+					div.circle-clipper.left
+						div.circle
+					div.gap-patch
+						dic.circle
+					div.circle-clipper.right
+						div.circle
+		

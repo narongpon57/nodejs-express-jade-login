@@ -1,0 +1,22 @@
+.register {
+    width: 100%;
+    height: 100%;
+    display: table;
+    .register-form {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .card-panel {
+        padding: 2rem;
+        background-color: #ffffff;
+    }
+    .title {
+        p {
+            font-size: 25px;
+            color: #444;
+        }
+    }
+    .custom-btn {
+        width: 50%;
+    }
+}
