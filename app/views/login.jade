@@ -10,23 +10,24 @@ block content
 			div.col.s4.offset-s4.card-panel.z-depth-4
 				div.row.center.title
 					p Welcome To Login Demo
-				div.row.no-margin-bottom
-					div.input-field.col.s12
-						i.material-icons.prefix perm_identity
-						input#username(type='text')
-						label(for='username') Username
-				div.row.no-margin-bottom
-					div.input-field.col.s12
-						i.material-icons.prefix lock_outline
-						input#password(type='password')
-						label(for='password') Password
-				div.row
-					div.input-field.col.s12
-						input#remember(type='checkbox')
-						label(for='remember') Remember Me
-				div.row
-					div.input-field.col.s12
-						a#login.waves-effect.waves-light.btn.custom-btn(href='#') Login
+				form(name='login', method='POST', action='/login')
+					div.row.no-margin-bottom
+						div.input-field.col.s12
+							i.material-icons.prefix perm_identity
+							input(type='text', name='username')
+							label(for='username') Username
+					div.row.no-margin-bottom
+						div.input-field.col.s12
+							i.material-icons.prefix lock_outline
+							input(type='password', name='password')
+							label(for='password') Password
+					div.row
+						div.input-field.col.s12
+							input#remember(type='checkbox')
+							label(for='remember') Remember Me
+					div.row
+						div.input-field.col.s12
+							button.waves-effect.waves-light.btn.custom-btn(type='submit') Login
 				div.row.center
 					div.input-field.col.s12
 						a.register.modal-trigger(href='/register') Register Now !!

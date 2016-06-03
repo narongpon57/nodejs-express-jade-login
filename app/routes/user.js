@@ -8,4 +8,6 @@ module.exports = function(app) {
 	app.route('/register')
 		.get(user.renderRegister)
 		.post(user.register);
+	app.route('/user')
+		.get(user.renderUser);
 }
