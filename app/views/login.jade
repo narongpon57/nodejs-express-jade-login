@@ -10,6 +10,8 @@ block content
 			div.col.s4.offset-s4.card-panel.z-depth-4
 				div.row.center.title
 					p Welcome To Login Demo
+				each msg in messages
+					div.flash-error.center= msg
 				form(name='login', method='POST', action='/login')
 					div.row.no-margin-bottom
 						div.input-field.col.s12

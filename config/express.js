@@ -2,11 +2,24 @@ var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var sass = require('node-sass-middleware');
+var flash = require('connect-flash');
+var passport = require('passport');
+var session = require('express-session');
 
 module.exports = function() {
 	var app = express();
 
 	app.use(morgan('dev'));
+
+	app.use(session({
+		secret: 'dev_secret_key',
+		resave: false,
+		saveUninitialized: true
+	}));
+
+	app.use(passport.initialize());
+	app.use(passport.session());
+	app.use(flash());
 	app.use(bodyParser.urlencoded({
 		extended: true
 	}));

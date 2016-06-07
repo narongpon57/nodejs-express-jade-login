@@ -1,4 +1,4 @@
-var User = require('mongoose').model('user');
+var User = require('mongoose').model('User');
 
 exports.listUser = function(req, res) {
 	User.find({}, function(err, user) {
@@ -8,7 +8,8 @@ exports.listUser = function(req, res) {
 }
 exports.renderLogin = function(req, res) {
 	res.render('login', {
-		title: 'Login'
+		title: 'Login',
+		messages: req.flash('loginError')
 	});
 }
 
@@ -37,7 +38,7 @@ exports.register = function(req, res) {
 	var user = new User(req.body);
 	user.save(function(err, user) {
 		if (err) 
-			res.json(err);
+			res.redirect('/register');
 		else 
 			res.redirect('/login');
 	});

@@ -9,7 +9,7 @@ block content
 			div.col.s6.offset-s3.card-panel.z-depth-4
 				div.row.center.title
 					p Please input your information
-				form(name='register', method='POST', action='/register')
+				form#form_register(name='register', method='POST', action='/register')
 					div.col.s12
 						div.row
 							div.input-field.col.s6
@@ -32,3 +32,8 @@ block content
 						div.row
 							div.input-field.col.s12.center
 								button.waves-effect.waves-light.btn.custom-btn(type='submit') Register
+block custom_script
+	script.
+		$(function() {
+			
+		});
