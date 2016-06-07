@@ -8,12 +8,11 @@ html(lang='th')
 			title='Jade Layout Template'
 
 		block styles
-			link(rel='stylesheet', href='/materialize-css/dist/css/materialize.min.css')
+			link(rel='stylesheet', href='lib/materialize/dist/css/materialize.min.css')
 			link(rel='stylesheet', href='/css/style.css')
 	body
 		block content
 		block scripts
-			script(src='/jquery/dist/jquery.js')
-			script(src='/materialize-css/dist/js/materialize.min.js')
-			script(src='/js/jquery-validation-1.15.0/dist/jquery.validate.min.js')
+			script(src='/lib/dist/jquery.min.js')
+			script(src='/lib/materialize/dist/js/materialize.min.js')
 		block custom_script

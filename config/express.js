@@ -36,8 +36,7 @@ module.exports = function() {
 		prefix: '/css',
 		debug: true
 	}));
-
-	app.use(express.static('./node_modules'));
+	
 	app.use(express.static('./public'));
 
 	return app;

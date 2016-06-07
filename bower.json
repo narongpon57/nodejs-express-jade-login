@@ -1,0 +1,22 @@
+{
+  "name": "jade_login_demo",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Narongpon Suthimakphol <n.suthimakphol@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/narongpon57/nodejs-express-jade-login",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.4",
+    "Materialize": "materialize#^0.97.6"
+  }
+}
